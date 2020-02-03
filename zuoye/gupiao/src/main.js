@@ -2,6 +2,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import store from './store'
+
 // import store from './store'
 // import Vuex from 'vuex'
 // import ElementUI from 'element-ui';
@@ -20,7 +22,7 @@ Vue.use(oAxios)
 
 new Vue({
   router,
-  // store,
+  store,
   render: h => h(App),
   data() {
     return { value: '' }

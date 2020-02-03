@@ -1,31 +1,21 @@
 <template>
     <div class="home">
-        <div class='ulbox'>
-            <span class="left">AAPL</span>
-            <div class="right">
-                <span>99.65</span>
-                <button>+0.72%</button>
+        <div class="topbox">
+            <div class='ulbox' v-for="(item,index) in list.data">
+                <span class="left">{{item.symbol}}</span>
+                <div class="right">
+                    <span>{{item.price}}</span>
+                    <button>+{{item.amplitude}}</button>
+                </div>
             </div>
         </div>
-                <div class='ulbox'>
-            <span class="left">AAPL</span>
-            <div class="right">
-                <span>99.65</span>
-                <button>+0.72%</button>
-            </div>
-        </div>
-
-        <div class='ulbox'>
-            <span class="left">AAPL</span>
-            <div class="right">
-                <span>99.65</span>
-                <button>+0.72%</button>
-            </div>
-        </div>
-
+        <Content></Content>
     </div>
 </template>
 <script>
+import Content from '../../components/Content'
+import {mapState,mapActions} from 'vuex';
+
 export default {
     props:{
 
@@ -39,15 +29,16 @@ export default {
         }
     },
     computed:{
-
+       ...mapState(['list'])
     },
     methods:{
-
+       ...mapActions(['getList']),
     },
     created(){
-        this.$get('/finance/stock/usaall?key=99622ad78bcb0ba00aa71085a2580d95').then(res=>{
-            console.log(res)
-        })
+        // this.$get('/finance/stock/usaall?key=99622ad78bcb0ba00aa71085a2580d95&page=1').then(res=>{
+        //     console.log(res.data.result)
+        // })
+        this.getList()
     },
     mounted(){
 
@@ -66,6 +57,15 @@ body,html{
     flex-direction: column;
     background:#000;
     color:#fff;
+}
+.topbox{
+    width:100%;
+    height:100px;
+    line-height:35px;
+    display:flex;
+    margin-top:10px;
+    overflow-y:scroll;
+    flex-direction:column;
 }
 .ulbox{
     width: 100%;
