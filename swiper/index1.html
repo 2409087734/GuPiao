@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+    .box{
+        width: 30px;
+        height: 30px;
+        background: #aaa;
+    }
+    .master{
+        width: 100px;
+        height: 100px;
+        background:blue;
+        position:absolute;
+        top:0;
+        left:0;
+        /* display: none; */
+    }
+    .off{
+        color:#fff;
+        font-size:25px;
+        position:absolute;
+        top:0;
+        right:0;
+        border:1px solid #fff;
+    }
+    </style>
+</head>
+<body>
+    <body>
+        <div class="box"></div>
+        <div class="master"><span class="off">X</span></div>
+        <script>
+           var box=document.querySelector('.box');
+           var master=document.querySelector('.master');
+           var off =document.querySelector('.off');
+           box.onclick=function(){
+               master.style.display==="block";
+           }
+           off.onclick=function(){
+               master.style.display==="none"
+           }
+        </script>
+    </body>
+</body>
+</html>

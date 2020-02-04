@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #app {
+      height: 200px;
+      width: 200px;
+      background-color: yellow;
+      position: absolute;
+      top: 100px;
+    }
+
+    #gangan {
+      position: absolute;
+      height: 400px;
+      width: 1px;
+      background-color: #000;
+      left: 250px;
+
+    }
+
+  </style>
+</head>
+<body>
+<div id="app"></div>
+<div id="gangan"></div>
+<button onclick="start()">动起来</button>
+
+<script>
+  let oApp = document.getElementById("app");
+  let timer = null;
+  function start() {
+    let speed = 1;
+    timer = setInterval(function () {
+      if (oApp.offsetLeft >= 290) {
+        clearInterval(timer);
+      } else {
+        oApp.style.left = oApp.offsetLeft + speed + 'px';
+      }
+    }, 10);
+
+
+  }
+</script>
+</body>
+</html>

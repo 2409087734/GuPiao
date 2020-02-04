@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    #box {
+      width: 800px;
+      height: 400px;
+      overflow: hidden;
+      margin: 130px auto;
+      position: absolute;
+      left: 20%;
+    }
+    .list {
+      width: 800px;
+      position: absolute;
+      height: 2000px;
+    }
+
+    .list li {
+      width: 800px;
+      height: 400px;
+      list-style: none;
+    }
+    .list li img {
+      width: 800px;
+      height: 400px;
+    }
+
+  </style>
+</head>
+<body>
+<div id="box">
+  <ul class="list">
+    <li><img src="./img/timg (78).jpg" alt=""></li>
+    <li><img src="./img/timg (79).jpg" alt=""></li>
+    <li><img src="./img/timg (81).jpg" alt=""></li>
+    <li><img src="./img/timg (82).jpg" alt=""></li>
+    <li><img src="./img/timg (83).jpg" alt=""></li>
+  </ul>
+</div>
+<script src="js/move.js"></script>
+<script>
+  let List = document.getElementsByClassName("list")[0];
+
+  let timer = 0;
+  setInterval(function () {
+    if (timer>4) {
+      timer = 0;
+    }
+    startMove(List,{top: -400*timer});
+    timer++;
+
+  }, 1000);
+
+</script>
+</body>
+</html>
